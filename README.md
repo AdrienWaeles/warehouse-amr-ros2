@@ -1,5 +1,7 @@
 # Warehouse AMR Stack
 
+[![CI](https://github.com/AdrienWaeles/warehouse-amr-ros2/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AdrienWaeles/warehouse-amr-ros2/actions/workflows/ci.yml)
+
 A C++17 / ROS 2 stack for an autonomous mobile robot in a warehouse, written from scratch by hand to review robotics fundamentals on a concrete application.
 
 **Status:** early stage (project skeleton). Kinematics, localization and navigation are planned.
