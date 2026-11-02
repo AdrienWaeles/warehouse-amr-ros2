@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: build (Release, -Werror)
     runs-on: ubuntu-22.04
 
     steps:
@@ -21,3 +22,19 @@ jobs:
 
       - name: Build
         run: cmake --build build --parallel
+
+  sanitizers:
+    name: sanitizers (ASan + UBSan)
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Configure (Debug, ASan + UBSan)
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DAMR_ENABLE_SANITIZERS=ON
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Run
+        run: ./build/amr_robot
