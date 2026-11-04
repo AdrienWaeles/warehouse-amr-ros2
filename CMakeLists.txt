@@ -10,10 +10,10 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(amr_warnings -Wall -Wextra -Wpedantic -Wshadow)
+set(amr_warnings -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
 option(AMR_ENABLE_SANITIZERS "Build with ASan and UBSan" OFF)
 
-add_library(amr_core STATIC src/version.cpp)
+add_library(amr_core STATIC src/version.cpp src/angle.cpp)
 target_compile_options(amr_core PRIVATE ${amr_warnings})
 target_include_directories(amr_core PUBLIC include)
 
